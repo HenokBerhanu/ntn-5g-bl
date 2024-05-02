@@ -16,7 +16,7 @@ services:
 
   nrf:
     container_name: nrf
-    image: nrf:v3.1.1
+    image: f5gc-nrf:v3.1.1
     #image: free5gc/nrf:v3.3.0
     #command: ./nrf -c ./nrfcfg.yaml
     command: --config nrfcfg.yaml
@@ -35,7 +35,7 @@ services:
 
   amf:
     container_name: amf
-    image: amf:v3.1.1
+    image: f5gc-amf:v3.1.1
     #command: ./amf -c ./amfcfg.yaml
     command: --config amfcfg.yaml
     #entrypoint: bash ./entrypoint.sh
@@ -57,7 +57,7 @@ services:
 
   uereg:
     container_name: uereg
-    image: uereg:latest
+    image: f5gc-uereg:latest
     command: --config populatecfg.yaml
     volumes:
       - ./configs/config1/uereg.yaml:/populate/populatecfg.yaml
@@ -73,7 +73,7 @@ services:
   
   upf:
     container_name: upf
-    image: upf:v3.1.1
+    image: f5gc-upf:v3.1.1
     command: bash ./upf-iptables.sh
     #command: bash -c "./upf-iptables.sh && ./free5gc-upfd -c ./upfcfg.yaml"
     volumes:
@@ -89,7 +89,7 @@ services:
 
   smf:
     container_name: smf
-    image: smf:v3.1.1
+    image: f5gc-smf:v3.1.1
     #image: free5gc/smf:v3.3.0
     #command: ./smf -c ./smfcfg.yaml -u ./uerouting.yaml
     command: --config smfcfg.yaml --uerouting uerouting.yaml
@@ -111,7 +111,7 @@ services:
 
   ausf:
     container_name: ausf
-    image: ausf:v3.1.1
+    image: f5gc-ausf:v3.1.1
     #command: ./ausf -c ./ausfcfg.yaml
     command: --config ausfcfg.yaml
     # expose:
@@ -128,7 +128,7 @@ services:
 
   nssf:
     container_name: nssf
-    image: nssf:v3.1.1
+    image: f5gc-nssf:v3.1.1
     #command: ./nssf -c ./nssfcfg.yaml
     command: --config nssfcfg.yaml
     # expose:
@@ -145,7 +145,7 @@ services:
 
   pcf:
     container_name: pcf
-    image: pcf:v3.1.1
+    image: f5gc-pcf:v3.1.1
     #command: ./pcf -c ./pcfcfg.yaml
     command: --config pcfcfg.yaml
     # expose:
@@ -164,7 +164,7 @@ services:
 
   udm:
     container_name: udm
-    image: udm:v3.1.1
+    image: f5gc-udm:v3.1.1
     #command: ./udm -c ./udmcfg.yaml
     command: --config udmcfg.yaml
     # expose:
@@ -182,7 +182,7 @@ services:
 
   udr:
     container_name: udr
-    image: udr:v3.1.1
+    image: f5gc-udr:v3.1.1
     #command: ./udr -c ./udrcfg.yaml
     command: --config udrcfg.yaml
     # expose:
@@ -201,7 +201,7 @@ services:
   
   gnb:
     container_name: gnb
-    image: gnb:master
+    image: ueransim-gnb:master
     #entrypoint: ./nr-gnb -c ./gnbcfg.yaml
     command: --config gnbcfg.yaml
     #entrypoint: bash ./entrypoint.sh
@@ -224,7 +224,7 @@ services:
 
   ue:
     container_name: ue
-    image: ue:master
+    image: ueransim-ue:master
     #command: ./nr-ue -c ./uecfg.yaml
     command: --config uecfg.yaml
     #command: --config ue.yaml
