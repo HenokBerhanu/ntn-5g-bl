@@ -261,7 +261,7 @@ services:
       gwlan:
         ipv4_address: "${GW_NETWORK_HEAD:-172.22}.0.3"
         priority: 1000
-        ipv6_address: ${GW_IP6_HEAD:-2001:660}:6602:142::1:1
+        ipv6_address: ${GW_IP6_HEAD:-2001:660}:6602:142::1
     privileged: true
     cap_add:
       - ALL
@@ -324,7 +324,7 @@ services:
       stlan:
         ipv4_address: "${ST_NETWORK_HEAD:-172.21}.0.4"
         priority: 1000
-        ipv6_address: ${ST_IP6_HEAD:-2001:661}:6602:142::1:2
+        ipv6_address: ${ST_IP6_HEAD:-2001:661}:6602:142::2
     privileged: true
     cap_add:
       - ALL
