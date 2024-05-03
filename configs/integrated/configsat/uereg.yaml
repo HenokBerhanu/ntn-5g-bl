@@ -18,10 +18,10 @@ amf: 8000
 
 # List all the slices
 slices:
-  - sst: 1
-    sd: '010203'
-    varqi: 9
-    dnn: internetter
+  # - sst: 1
+  #   sd: '010203'
+  #   varqi: 9
+  #   dnn: internetter
   - sst: 1
     sd: '112233'
     varqi: 9
