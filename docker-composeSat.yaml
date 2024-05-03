@@ -241,15 +241,15 @@ services:
   
   gateway:
     container_name: ${GW_CONTAINER_NAME:-gateway}
-    build: /home/vagrant/3D-NTN/build_images/opensand-simulator/opensand/gateway/
+    build: /home/henok/ntn-5g-bl/build/opensand/gateway/
     entrypoint: ./opensand_config/entrypoint.sh
     ports:
       - "3141"
       - "5358"
       - "5926"
     volumes:
-      - /home/vagrant/3D-NTN/build_images/opensand-simulator/opensand/gateway/config:/opensand_config
-      - /home/vagrant/3D-NTN/build_images/opensand-simulator/opensand/src/:/root/go/src
+      - /home/henok/ntn-5g-bl/build/opensand/gateway/config:/opensand_config
+      - /home/henok/ntn-5g-bl/build/opensand/src/:/root/go/src
     networks:
       satgateway-network:
         ipv4_address: 192.168.35.4 #172.22.0.3
@@ -276,7 +276,7 @@ services:
 
   satellite:
     container_name: ${SAT_CONTAINER_NAME:-satellite}
-    build: /home/vagrant/3D-NTN/build_images/opensand-simulator/opensand/satellite/
+    build: /home/henok/ntn-5g-bl/build/opensand/satellite/
     entrypoint: ./opensand_config/entrypoint.sh
     ports:
       - "3141"
@@ -284,9 +284,9 @@ services:
       - "5926"
       - "${SAT_PORT_NUMBER:-5656}:5656"
     volumes:
-      - /home/vagrant/3D-NTN/build_images/opensand-simulator/opensand/satellite/config:/opensand_config
-      - /home/vagrant/3D-NTN/build_images/opensand-simulator/opensand/satellite/attenuation_scenario:/attenuation_scenario
-      - /home/vagrant/3D-NTN/build_images/opensand-simulator/opensand/satellite/delay_scenario:/delay_scenario
+      - /home/henok/ntn-5g-bl/build/opensand/satellite/config:/opensand_config
+      - /home/henok/ntn-5g-bl/build/opensand/satellite/attenuation_scenario:/attenuation_scenario
+      - /home/henok/ntn-5g-bl/build/opensand/satellite/delay_scenario:/delay_scenario
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
     networks:
       emulation:
@@ -303,15 +303,15 @@ services:
 
   terminal:
     container_name: ${ST_CONTAINER_NAME:-terminal}
-    build: /home/vagrant/3D-NTN/build_images/opensand-simulator/opensand/terminal/
+    build: /home/henok/ntn-5g-bl/build/opensand/terminal/
     entrypoint: ./opensand_config/entrypoint.sh
     ports:
       - "3141"
       - "5358"
       - "5926"
     volumes:
-      - /home/vagrant/3D-NTN/build_images/opensand-simulator/opensand/terminal/config:/opensand_config
-      - /home/vagrant/3D-NTN/build_images/opensand-simulator/opensand/src/:/root/go/src
+      - /home/henok/ntn-5g-bl/build/opensand/terminal/config:/opensand_config
+      - /home/henok/ntn-5g-bl/build/opensand/src/:/root/go/src
     environment:
       GOPATH: /root/go
       GIN_MODE: release
