@@ -28,3 +28,5 @@ From this directory, all the components are built when running the docker-compos
 docker compose -f docker-composeSat.yaml up
 
 ## Now we can exec into the user equipment and access the data network
+
+## the figures in the Figs directory shows the screenshot of the end to end network with ping tests
