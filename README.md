@@ -20,23 +20,14 @@ Clone repository in an environment where docker and docker-compose are pre-insta
 Build the docker images:
 
 ```
-For 5G core
-cd /home/vagrant/3D-NTN/build_images
-./build_core.sh
+All the images are built and pushed to the dockrhub
 ```
 ```
 For OpenSand
-cd /home/vagrant/3D-NTN/build_images/opensand-simulator/opensand
+cd /home/henok/ntn-5g-bl/build/opensand   # change with your directory
 From this directory, all the components are built when running the docker-composeSat.yaml file.
 ```
 ```
-For UERANSIM
-cd /home/vagrant/3D-NTN/build_images
-./build_ran.sh
-```
-The deployed network topology is shown below below:
-
-<img src="./Figs/network-model.png" title="./Figs/network-model.png" width=800px></img>
 
 ### Before executing the network after building the images,
 * Install GTP5G for the Free5GC UPF to enable the GPRS Tunnelling for a 5G-based network. Run the file **./installgtp5g.sh**
@@ -44,21 +35,8 @@ The deployed network topology is shown below below:
 
 ### Run experiments
 
-* As the figure above shows, two networks are linked together, namely the terrestrial and the satellite network.
   
-* The **docker-composeTer.yaml** file consists of the terrestrial connection. While the **docker-composeSat.yaml** comprised both the satellite and terrestrial networks.
-  
-* For the experimnet, we can use the **docker-composeSat.yaml** file with few rearrangements.
-  
-* To run the terrestrial network, disable the satellite network components by commenting the following containers, **upfMec** (UPF attached to the satellite terminal), **gnbSat** (Satellite connected gNB), **gateway**, **satellite**, **terminal**, and **uesat**
-  
-* The after doing the above step, running the **docker-composeSat.yaml** file will result in the following containers to function:
+# The deployed network topology is shown below below:
 
-<img src="./Figs/ter.png" title="./Figs/ter.png" width=800px></img>
-
-* And for satellite-based network deployment, uncomment the above docker containers and comment the terrestrial component containers such as **ueter**, **gnbTer**, **upfTer** and execute the **docker-composeSat.yaml** file.
-  
-* The result of the satellite service deployment is shown in the below figure:   
-  
-<img src="./Figs/sat.png" title="./Figs/sat.png" width=800px></img>
+docker compose -f docker-composeSat.yaml up
 
