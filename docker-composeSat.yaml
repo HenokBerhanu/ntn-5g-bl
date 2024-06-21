@@ -18,7 +18,7 @@ services:
     image: docker.io/henok28/f5gc-nrf:v3.1.1 #nrf:v3.1.1
     command: --config nrfcfg.yaml
     volumes:
-      - ./configs/integrated/configsat/nrfcfg.yaml:/free5gc/nrfcfg.yaml
+      - ./configcore/nrfcfg.yaml:/free5gc/nrfcfg.yaml
     environment:
       GIN_MODE: release
     networks:
@@ -32,8 +32,8 @@ services:
     image: docker.io/henok28/f5gc-amf:v3.1.1 #amf:v3.1.1b
     entrypoint: bash ./entrypoint.sh
     volumes:
-      - ./configs/integrated/configsat/amfcfg.yaml:/free5gc/amfcfg.yaml
-      - ./configs/integrated/configsat/amf.sh:/free5gc/entrypoint.sh
+      - ./configcore/amfcfg.yaml:/free5gc/amfcfg.yaml
+      - ./configcore/amf.sh:/free5gc/entrypoint.sh
     cap_add:
       - NET_ADMIN
     environment:
@@ -51,7 +51,7 @@ services:
     image: docker.io/henok28/f5gc-uereg:latest #uereg:latest
     command: --config populatecfg.yaml
     volumes:
-      - ./configs/integrated/configsat/uereg.yaml:/populate/populatecfg.yaml
+      - ./configcore/uereg.yaml:/populate/populatecfg.yaml
     environment:
       GIN_MODE: release
     networks:
@@ -67,8 +67,8 @@ services:
     image: docker.io/henok28/f5gc-upf:v3.1.1 #upf:v3.1.1
     command: bash ./upf-iptables.sh
     volumes:
-      - ./configs/integrated/configsat/upfcfgmec.yaml:/free5gc/upfcfg.yaml
-      - ./configs/integrated/configsat/upf-iptablesmec.sh:/free5gc/upf-iptables.sh
+      - ./configcore/upfcfgmec.yaml:/free5gc/upfcfg.yaml
+      - ./configcore/upf-iptablesmec.sh:/free5gc/upf-iptables.sh
     cap_add:
       - NET_ADMIN
     networks:
@@ -76,28 +76,6 @@ services:
         ipv4_address: 192.168.30.4 
       pfcp:
         ipv4_address: 192.168.5.5
-      # pfcp:
-      #   ipv4_address: 192.168.5.4 #eth1
-      # n123-terrestrial:
-      #   ipv4_address: 192.168.15.4 #eth0
-      # data-networkN6:
-      #   ipv4_address: 192.168.10.3
-  
-  # upfTer:
-  #   container_name: upfTer
-  #   image: upf:v3.1.1
-  #   command: bash ./upf-iptables.sh
-  #   #command: bash -c "./upf-iptables.sh && ./free5gc-upfd -c ./upfcfg.yaml"
-  #   volumes:
-  #     - ./configs/integrated/configsat/upfcfgter.yaml:/free5gc/upfcfg.yaml
-  #     - ./configs/integrated/configsat/upf-iptablester.sh:/free5gc/upf-iptables.sh
-  #   cap_add:
-  #     - NET_ADMIN
-  #   networks:
-  #     pfcp:
-  #       ipv4_address: 192.168.5.4 #eth1
-  #     n123-terrestrial:
-  #       ipv4_address: 192.168.15.4 #eth0
 
   smf:
     container_name: smf
@@ -105,9 +83,9 @@ services:
     #command: --config smfcfg.yaml --uerouting uerouting.yaml
     entrypoint: bash ./entrypoint.sh
     volumes:
-      - ./configs/integrated/configsat/smfcfg.yaml:/free5gc/smfcfg.yaml
-      - ./configs/integrated/configsat/uerouting.yaml:/free5gc/uerouting.yaml
-      - ./configs/integrated/configsat/smf.sh:/free5gc/entrypoint.sh
+      - ./configcore/smfcfg.yaml:/free5gc/smfcfg.yaml
+      - ./configcore/uerouting.yaml:/free5gc/uerouting.yaml
+      - ./configcore/smf.sh:/free5gc/entrypoint.sh
     cap_add:
       - NET_ADMIN
     networks:
@@ -125,7 +103,7 @@ services:
     image: docker.io/henok28/f5gc-ausf:v3.1.1 #ausf:v3.1.1
     command: --config ausfcfg.yaml
     volumes:
-      - ./configs/integrated/configsat/ausfcfg.yaml:/free5gc/ausfcfg.yaml
+      - ./configcore/ausfcfg.yaml:/free5gc/ausfcfg.yaml
     environment:
       GIN_MODE: release
     networks:
@@ -139,7 +117,7 @@ services:
     image: docker.io/henok28/f5gc-nssf:v3.1.1 #nssf:v3.1.1
     command: --config nssfcfg.yaml
     volumes:
-      - ./configs/integrated/configsat/nssfcfg.yaml:/free5gc/nssfcfg.yaml
+      - ./configcore/nssfcfg.yaml:/free5gc/nssfcfg.yaml
     environment:
       GIN_MODE: release
     networks:
@@ -153,7 +131,7 @@ services:
     image: docker.io/henok28/f5gc-pcf:v3.1.1 #pcf:v3.1.1
     command: --config pcfcfg.yaml
     volumes:
-      - ./configs/integrated/configsat/pcfcfg.yaml:/free5gc/pcfcfg.yaml
+      - ./configcore/pcfcfg.yaml:/free5gc/pcfcfg.yaml
     cap_add:
       - NET_ADMIN
     environment:
@@ -169,7 +147,7 @@ services:
     image: docker.io/henok28/f5gc-udm:v3.1.1 #udm:v3.1.1
     command: --config udmcfg.yaml
     volumes:
-      - ./configs/integrated/configsat/udmcfg.yaml:/free5gc/udmcfg.yaml
+      - ./configcore/udmcfg.yaml:/free5gc/udmcfg.yaml
     environment:
       GIN_MODE: release
     networks:
@@ -183,7 +161,7 @@ services:
     image: docker.io/henok28/f5gc-udr:v3.1.1 #udr:v3.1.1
     command: --config udrcfg.yaml
     volumes:
-      - ./configs/integrated/configsat/udrcfg.yaml:/free5gc/udrcfg.yaml
+      - ./configcore/udrcfg.yaml:/free5gc/udrcfg.yaml
     environment:
       GIN_MODE: release
     networks:
@@ -192,13 +170,13 @@ services:
     depends_on:
       - nrf
 
-  gnbSat:
-    container_name: gnbSat
+  gnb:
+    container_name: gnb
     image: docker.io/henok28/ueransim-gnb:master #gnb:masterb
     entrypoint: bash ./entrypoint.sh
     volumes:
-      - ./configs/integrated/configsat/gnbcfgsat.yaml:/gnb/gnbcfg.yaml
-      - ./configs/integrated/configsat/gnb.sh:/gnb/entrypoint.sh
+      - ./configran/gnbcfgsat.yaml:/gnb/gnbcfg.yaml
+      - ./configran/gnb.sh:/gnb/entrypoint.sh
     cap_add:
       - NET_ADMIN
     networks:
@@ -206,8 +184,6 @@ services:
         ipv4_address: 192.168.15.7
       satgateway-network:
         ipv4_address: 192.168.35.3 #172.22.0.4
-      # satgnb-network:
-      #   ipv4_address: 192.168.40.3
     depends_on:
       - nrf
       - amf
@@ -216,28 +192,8 @@ services:
       - pcf
       - ausf
       - gateway
-      - satellite
+      - sat1
       - terminal
-  
-  # gnbTer:
-  #   container_name: gnbTer
-  #   image: gnb:master
-  #   command: --config gnbcfg.yaml
-  #   #entrypoint: bash ./entrypoint.sh
-  #   volumes:
-  #     - ./configs/integrated/configsat/gnbcfgter.yaml:/gnb/gnbcfg.yaml
-  #   cap_add:
-  #     - NET_ADMIN
-  #   networks:
-  #     n123-terrestrial:
-  #       ipv4_address: 192.168.15.3
-  #   depends_on:
-  #     - nrf
-  #     - amf
-  #     - upfTer
-  #     - smf
-  #     - pcf
-  #     - ausf
   
   gateway:
     container_name: ${GW_CONTAINER_NAME:-gateway}
@@ -274,9 +230,9 @@ services:
       GOPATH: /root/go
       GIN_MODE: release
 
-  satellite:
-    container_name: ${SAT_CONTAINER_NAME:-satellite}
-    build: /home/henok/ntn-5g-bl/build/opensand/satellite/
+  sat1:
+    container_name: ${SAT_CONTAINER_NAME:-sat1}
+    build: /home/henok/ntn-5g-bl/build/opensand/sat1/
     entrypoint: ./opensand_config/entrypoint.sh
     ports:
       - "3141"
@@ -284,9 +240,9 @@ services:
       - "5926"
       - "${SAT_PORT_NUMBER:-5656}:5656"
     volumes:
-      - /home/henok/ntn-5g-bl/build/opensand/satellite/config:/opensand_config
-      - /home/henok/ntn-5g-bl/build/opensand/satellite/attenuation_scenario:/attenuation_scenario
-      - /home/henok/ntn-5g-bl/build/opensand/satellite/delay_scenario:/delay_scenario
+      - /home/henok/ntn-5g-bl/build/opensand/sat1/config:/opensand_config
+      - /home/henok/ntn-5g-bl/build/opensand/sat1/attenuation_scenario:/attenuation_scenario
+      - /home/henok/ntn-5g-bl/build/opensand/sat1/delay_scenario:/delay_scenario
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
     networks:
       emulation:
@@ -303,7 +259,7 @@ services:
 
   terminal:
     container_name: ${ST_CONTAINER_NAME:-terminal}
-    build: /home/henok/ntn-5g-bl/build/opensand/terminal/
+    build: /home/henok/ntn-5g-bl/build/opensand/terminal
     entrypoint: ./opensand_config/entrypoint.sh
     ports:
       - "3141"
@@ -333,33 +289,14 @@ services:
       - /dev/net/tun
     sysctls:
       - net.ipv6.conf.all.disable_ipv6=0
-
-  # ueter:
-  #   container_name: ueter
-  #   image: ue:masterb
-  #   entrypoint: bash ./entrypoint.sh
-  #   volumes:
-  #     - ./configs/integrated/configsat/uecfgter.yaml:/ue/uecfg.yaml
-  #     - ./configs/integrated/configsat/ueter.sh:/ue/entrypoint.sh
-  #   cap_add:
-  #     - NET_ADMIN
-  #   devices:
-  #     - /dev/net/tun
-  #   networks:
-  #     n123-terrestrial:
-  #       ipv4_address: 192.168.15.6
-  #     # satterminal-network:
-  #     #   ipv4_address: 192.168.30.5 #172.21.0.5
-  #   depends_on:
-  #     - gnbTer
   
-  uesat:
-    container_name: uesat
+  uesat1:
+    container_name: uesat1
     image: docker.io/henok28/ueransim-ue:master #ue:masterb
     entrypoint: bash ./entrypoint.sh
     volumes:
-      - ./configs/integrated/configsat/uecfgsat.yaml:/ue/uecfg.yaml
-      - ./configs/integrated/configsat/uesat.sh:/ue/entrypoint.sh
+      - ./configran/uecfgsat.yaml:/ue/uecfg.yaml
+      - ./configran/uesat1.sh:/ue/entrypoint.sh
     cap_add:
       - NET_ADMIN
     devices:
@@ -418,15 +355,6 @@ networks:
         - subnet: 192.168.35.0/24 #172.22.0.0/24
     driver_opts:
       com.docker.network.bridge.name: sat-gate-net
-  # satgnb-network:
-  #   name: satgnb-network
-  #   driver: bridge
-  #   ipam:
-  #     driver: default
-  #     config:
-  #       - subnet: 192.168.40.0/24 #172.22.0.0/24
-  #   driver_opts:
-  #     com.docker.network.bridge.name: sat-gnb-net
   emulation:
     name: ${EMU_NETWORK_NAME:-emulation}
     driver: bridge

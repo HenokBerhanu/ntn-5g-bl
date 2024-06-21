@@ -13,6 +13,16 @@ RUN rm /etc/apt/sources.list.d/opensand.list
 # EXPOSE 3141
 # EXPOSE 5358
 # EXPOSE 5926
+
+# Install necessary tools
+RUN apt-get update && apt-get install -y \
+    iproute2 \
+    iperf3 \
+    iptables \
+    curl \
+    jq \
+    && apt-get clean
+
 COPY config/term.conf /etc/opensand/daemon.conf
 COPY config/entrypoint.sh /tmp/entrypoint.sh
 #RUN chmod +x /tmp/entrypoint.sh

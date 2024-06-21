@@ -1,0 +1,9 @@
+# Ignore forlder
+hyperledger/
+/middleware/
+
+# ingnore files
+compose_cc.txt
+compose.txt
+docker-composeSat.yaml
+tasks.sh

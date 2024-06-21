@@ -1,0 +1,22 @@
+version: '3.8'
+# docker compose -f docker-compose-ganache.yml up --build
+services:
+  ganache:
+    image: trufflesuite/ganache-cli
+    ports:
+      - "8545:8545"
+    command: ganache-cli --host 0.0.0.0 --port 8545 --networkId 1337 --defaultBalanceEther 1000
+    networks:
+      backend:
+        ipv4_address: 172.23.0.2 # 192.168.30.5 #172.21.0.5
+
+networks:
+  backend:
+    name: backend
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.23.0.0/24 # 192.168.35.0/24 #172.22.0.0/24
+    driver_opts:
+      com.docker.network.bridge.name: backend-net

@@ -1,0 +1,23 @@
+# Use Ubuntu 20.04 as the base image
+# docker build -t app:iperf -f Dockerfile .
+
+FROM ubuntu:focal
+
+# Install necessary packages
+RUN apt-get update && \
+    apt-get install -y build-essential git iproute2 tcpdump iptables
+
+# Clone and build iperf2 from source
+WORKDIR /iperf
+RUN git clone https://git.code.sf.net/p/iperf2/code iperf2-source && \
+    cd iperf2-source && \
+    ./configure && \
+    make && \
+    make install
+
+# Create application directory
+WORKDIR /app
+RUN mkdir /app/results
+
+# Specify the entrypoint or CMD if necessary (uncomment and customize if needed)
+# CMD ["iperf", "--help"]
