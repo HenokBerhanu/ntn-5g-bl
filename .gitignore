@@ -1,6 +1,5 @@
 # Ignore forlder
 hyperledger/
-/middleware/
 
 # ingnore files
 compose_cc.txt
