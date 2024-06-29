@@ -17,3 +17,5 @@ In the directory: ./build/f5gc_core
 
 ## Built Ganache local blockchain image
 
+## Built middleware image 
+
