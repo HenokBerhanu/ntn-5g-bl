@@ -16,7 +16,7 @@ web3 = Web3(Web3.HTTPProvider(ganache_url))
 web3.eth.default_account = web3.eth.accounts[0]
 
 # Load contract ABI and address
-contract_address = '0x055AB5DD98bdF7d668e675C585aF1d491a2a5D3A'
+contract_address = '0x001c62F91F80A5a0eeCc6F60B78F641911024257'
 with open('/app/ethereum/build/contracts/TrafficControl.json') as f:
     contract_abi = json.load(f)['abi']
 contract = web3.eth.contract(address=contract_address, abi=contract_abi)
@@ -38,7 +38,7 @@ def authorize_device():
             'gasPrice': web3.to_wei('1', 'gwei'),
             'nonce': nonce,
         })
-        private_key = '0x6f07aa5da9acd0357741e95e83c73fc5569cb655451db3ff335ea8ebf051e8c5'
+        private_key = '0x5be3d9d215fc14b01f67630ff66faca9a15f27bcd5bf848f3cb4fbe95eddc7ef'
         signed_txn = web3.eth.account.sign_transaction(transaction, private_key=private_key)
         tx_hash = web3.eth.send_raw_transaction(signed_txn.rawTransaction)
         return jsonify({'tx_hash': tx_hash.hex()})
@@ -63,7 +63,7 @@ def deauthorize_device():
             'gasPrice': web3.to_wei('1', 'gwei'),
             'nonce': nonce,
         })
-        private_key = '0x6f07aa5da9acd0357741e95e83c73fc5569cb655451db3ff335ea8ebf051e8c5'
+        private_key = '0x5be3d9d215fc14b01f67630ff66faca9a15f27bcd5bf848f3cb4fbe95eddc7ef'
         signed_txn = web3.eth.account.sign_transaction(transaction, private_key=private_key)
         tx_hash = web3.eth.send_raw_transaction(signed_txn.rawTransaction)
         return jsonify({'tx_hash': tx_hash.hex()})

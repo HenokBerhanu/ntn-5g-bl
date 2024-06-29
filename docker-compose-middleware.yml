@@ -9,7 +9,7 @@ services:
       - "5000:5000"
     environment:
       GANACHE_URL: http://172.23.0.2:8545
-      CONTRACT_ADDRESS: '0x055AB5DD98bdF7d668e675C585aF1d491a2a5D3A'  # Replace this with your contract address
+      CONTRACT_ADDRESS: '0x001c62F91F80A5a0eeCc6F60B78F641911024257'  # Replace this with your contract address
     networks:
      backend:
         ipv4_address: 172.23.0.3 # 192.168.30.5 #172.21.0.5
