@@ -10,12 +10,18 @@ In the directory: ./build/f5gc_core
      BUild the docker images with the tag defined in the docker-compose.yaml file. 
 
 ## Build satellite emulator : opensand
-
+The satellite emulator containers will build upon runing the docker-compose.yaml file from directory: ./build/opensand
+Three containers: Gateway, Satellite, and Terminal will be in runing state
 
 ## Build RAN image: UERANSIM
+Build base images from ./build/ueransim_base and bothe cmake and ueransim base images should be built
+
+Build gNB and UE from ./build/ueransim_ran
 
 
 ## Built Ganache local blockchain image
+
+
 
 ## Built middleware image 
 
