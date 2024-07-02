@@ -54,9 +54,23 @@ docker compose -f docker-compose-ganache.yml up
 
 ## Compile and deploy smart contract:
 
-From the directory: 
+From the directory: ./ethereum
+
+truffle compile
+
+This will create the compiled ABI file including the bytecode in the directory: ./ethereum/build/contracts
+
+truffle migrate --network development
+
+This will deploy the compiled smart contract into the Ethereum Virtual Machine (EVM) and contract address is returned from the lockal blockchain
 
 ## Start Midleware: Listens at port 5000
+
+Fetch the contract address and private key of the first ethereum account to which the contract is deployed
+
+Sample account address and key pair:
+
+0x001c62F91F80A5a0eeCc6F60B78F641911024257 : 0x5be3d9d215fc14b01f67630ff66faca9a15f27bcd5bf848f3cb4fbe95eddc7ef
 
 docker compose -f docker-compose-middleware.yml up
 

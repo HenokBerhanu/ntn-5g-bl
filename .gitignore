@@ -8,3 +8,4 @@ docker-composeSat.yaml
 tasks.sh
 PduSession.py
 PduSessionManager.json
+compileDeploy.sh
