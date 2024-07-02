@@ -2,7 +2,7 @@
 
 This code is intended for the work "Blockchain-Enhanced Security for LEO Satellite Firmware Updates in Beyond-5G NTN Networks"
 
-# Build docker images for Free5GC core network:
+## Build docker images for Free5GC core network:
 
 Build core base image from directory: ./build/f5gc_core
 
