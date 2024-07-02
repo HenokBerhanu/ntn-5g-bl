@@ -74,3 +74,13 @@ Sample account address and key pair:
 
 docker compose -f docker-compose-middleware.yml up
 
+## Deploy the 5G NTN network to interact with Ganache via the middleware
+
+docker compose up
+
+The satellite components are configured to interact to Ganache
+
+Now an end-to-end GTP tunnel will be established if the traffic going to the satellite network is authenticated by the blockchain
+
+Sample Ethereum addresses of servers: 0x7db8a5b543406b96390a0703ce2e28bc84eb6529
+
