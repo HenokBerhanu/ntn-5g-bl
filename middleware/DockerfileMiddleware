@@ -1,7 +1,7 @@
 FROM python:3.8
 
 # FROM python:3.8-slim
-
+# docker build -t ntn-5g-bl-middleware:latest -f ./middleware/DockerfileMiddleware
 # Install necessary tools
 RUN apt-get update && apt-get install -y \
     iproute2 \

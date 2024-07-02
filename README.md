@@ -34,7 +34,11 @@ Build docker image for Ethereum local blockchain:
 
 docker build -t trufflesuite/ganache-cli:latest -f ./ethereum/Dockerfile
 
-
-
 ## Built middleware image 
+
+docker build -t ntn-5g-bl-middleware:latest -f ./middleware/DockerfileMiddleware
+
+## The end-to-end blockchain based 5G NTN networks are shown below:
+
+<img src="./Figs/network.pdf" title="./Figs/network.pdf" width=800px></img>
 
