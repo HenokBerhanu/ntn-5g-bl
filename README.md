@@ -40,7 +40,7 @@ docker build -t ntn-5g-bl-middleware:latest -f ./middleware/DockerfileMiddleware
 
 ## The end-to-end blockchain based 5G NTN networks are shown below:
 
-<img src="./Figs/network.png" title="./Figs/network.png" width=500px></img>
+<img src="./Figs/network.png" title="./Figs/network.png" width=400px></img>
 
 <img src="./Figs/setup.png" title="./Figs/setup.png" width=500px></img>
 
