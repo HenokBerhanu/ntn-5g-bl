@@ -42,3 +42,5 @@ docker build -t ntn-5g-bl-middleware:latest -f ./middleware/DockerfileMiddleware
 
 <img src="./Figs/network.png" title="./Figs/network.png" width=500px></img>
 
+<img src="./Figs/setup.png" title="./Figs/setup.png" width=500px></img>
+
