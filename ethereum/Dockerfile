@@ -1,5 +1,5 @@
 FROM node:14
-
+# docker build -t trufflesuite/ganache-cli:latest ./ethereum/Dockerfile
 WORKDIR /app
 
 COPY package.json .
