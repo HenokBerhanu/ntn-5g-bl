@@ -46,3 +46,17 @@ These fugures shows the overall build network for secure blockchain based 5G NTN
 
 <img src="./Figs/setup.png" title="./Figs/setup.png" width=500px></img>
 
+# Start the network:
+
+## Start Ganache CLI:  Ganache starts listening at port 8545
+
+docker compose -f docker-compose-ganache.yml up
+
+## Compile and deploy smart contract:
+
+From the directory: 
+
+## Start Midleware: Listens at port 5000
+
+docker compose -f docker-compose-middleware.yml up
+
