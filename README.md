@@ -24,6 +24,8 @@ docker build -t ueransim:base -f ./build/ueransim_base/ueransim/Dockerfile
 ### Build gNB and UE from ./build/ueransim_ran
 
 
+
+
 ## Built Ganache local blockchain image
 
 
