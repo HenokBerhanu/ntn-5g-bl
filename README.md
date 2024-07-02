@@ -32,7 +32,7 @@ docker build -t ue:master -f ./build/ueransim_ran/ue/Dockerfile
 
 Build docker image for Ethereum local blockchain:
 
-docker build -t trufflesuite/ganache-cli:latest ./ethereum/Dockerfile
+docker build -t trufflesuite/ganache-cli:latest -f ./ethereum/Dockerfile
 
 
 
