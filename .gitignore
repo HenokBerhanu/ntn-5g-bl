@@ -6,5 +6,5 @@ compose_cc.txt
 compose.txt
 docker-composeSat.yaml
 tasks.sh
-./ethereum/PduSession.py
-./ethereum/build/contracts/PduSessionManager.json
+PduSession.py
+PduSessionManager.json
