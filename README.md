@@ -17,6 +17,7 @@ Three containers: Gateway, Satellite, and Terminal will be in runing state
 Build base images from ./build/ueransim_base and bothe cmake and ueransim base images should be built
 
 docker build -t cmake:v3.2 -f ./build/ueransim_base/cmake/Dockerfile
+
 docker build -t ueransim:base -f ./build/ueransim_base/ueransim/Dockerfile
 
 Build gNB and UE from ./build/ueransim_ran
