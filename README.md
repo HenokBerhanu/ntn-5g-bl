@@ -1,4 +1,4 @@
-### 5G NTNSecurity  with Blockchain
+# 5G NTNSecurity  with Blockchain
 
 This code is intended for the work "Blockchain-Enhanced Security for LEO Satellite Firmware Updates in Beyond-5G NTN Networks"
 
@@ -14,13 +14,14 @@ The satellite emulator containers will build upon runing the docker-compose.yaml
 Three containers: Gateway, Satellite, and Terminal will be in runing state
 
 ## Build RAN image: UERANSIM
-Build base images from ./build/ueransim_base and bothe cmake and ueransim base images should be built
+
+### Build base images from ./build/ueransim_base and bothe cmake and ueransim base images should be built
 
 docker build -t cmake:v3.2 -f ./build/ueransim_base/cmake/Dockerfile
 
 docker build -t ueransim:base -f ./build/ueransim_base/ueransim/Dockerfile
 
-Build gNB and UE from ./build/ueransim_ran
+### Build gNB and UE from ./build/ueransim_ran
 
 
 ## Built Ganache local blockchain image
