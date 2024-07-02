@@ -72,7 +72,9 @@ Sample account address and key pair:
 
 0x001c62F91F80A5a0eeCc6F60B78F641911024257 : 0x5be3d9d215fc14b01f67630ff66faca9a15f27bcd5bf848f3cb4fbe95eddc7ef
 
+```
 docker compose -f docker-compose-middleware.yml up
+```
 
 ## Deploy the 5G NTN network to interact with Ganache via the middleware
 
